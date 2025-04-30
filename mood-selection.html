@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moodify - Mood Selection</title>
+    <link rel="stylesheet" href="Css/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="fontawesome-pro/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="logo">
+        <div class="logo-row">
+          <span class="logo-s">S</span>
+          <i class="fal fa-play logo-icon"></i>
+        </div>
+        <div class="logo-n">N</div>
+      </div>
+
+      <!-- Header Title (Moodify) -->
+      <h1 class="header-title">MOODIFY</h1>
+
+      <nav class="nav-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mood-selection.html">Mood Selection</a></li>
+          <li><a href="playlistpage.html">Playlist</a></li>
+        </ul>
+      </nav>
+      <div class="menu-icon" id="menu-icon">
+        <span>&#9776;</span>
+        <!-- Hamburger icon for mobile view -->
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="page-header">
+        <h1>How are you Feeling Today?</h1>
+      </div>
+
+      <!-- action bar -->
+      <div class="action-bar">
+        <div class="search-container">
+          <i class="fa-solid fa-search search-icon"></i>
+          <input
+            type="text"
+            placeholder="Search Playlists..."
+            id="search-input" />
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn" id="history-btn">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>Mood History</span>
+          </button>
+
+          <button class="btn" id="advanced-toggle">
+            <i class="fa-solid fa-chevron-down" id="advanced-icon"></i>
+            <span>Advanced Options</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Expandable Mood History Section -->
+      <div id="mood-history-panel" class="mood-history-panel">
+        <ul id="mood-history-list">
+          <!-- Dynamically filled with JS -->
+        </ul>
+        <button id="clear-history" class="clear-history-btn">
+          <i class="fa-solid fa-trash"></i> Clear History
+        </button>
+      </div>
+
+      <!-- Advanced options(Expandabe) -->
+      <div class="advanced-options" id="advanced-options">
+        <h3>Advanced Options</h3>
+        <div class="options-grid">
+          <div class="option-group">
+            <label for="tempo"> Tempo </label>
+            <select id="tempo">
+              <option>Any</option>
+              <option>Slow</option>
+              <option>Medium</option>
+              <option>Fast</option>
+            </select>
+          </div>
+          <div class="option-group">
+            <label for="genre">Genre</label>
+            <select id="genre">
+              <option>Any</option>
+              <option>Pop</option>
+              <option>Rock</option>
+              <option>Hip Hop</option>
+              <option>Classical</option>
+              <option>Jazz</option>
+            </select>
+          </div>
+          <div class="option-group">
+            <label for="era">Era</label>
+            <select id="era">
+              <option>Any</option>
+              <option>60s-70s</option>
+              <option>80-90s</option>
+              <option>2000s-2010s</option>
+              <option>Recent</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mood Selection Tabs -->
+      <div class="tabs">
+        <div class="tab-list">
+          <button class="tab-button" data-tab="mood-cards">Select Mood</button>
+          <button class="tab-button" data-tab="describe-mood">
+            Describe Your Mood
+          </button>
+        </div>
+
+        <!-- Mood Cards Tab -->
+        <div class="tab-content active" id="mood-cards">
+          <div class="mood-grid">
+            <div class="mood-card happy" data-mood="Happy">
+              <span class="mood-emoji">😊</span>
+              <span class="mood-name">Happy</span>
+            </div>
+            <div class="mood-card energetic" data-mood="Energetic">
+              <span class="mood-emoji">⚡</span>
+              <span class="mood-name">Energetic</span>
+            </div>
+            <div class="mood-card relaxed" data-mood="Relaxed">
+              <span class="mood-emoji">😌</span>
+              <span class="mood-name">Relaxed</span>
+            </div>
+            <div class="mood-card focused" data-mood="Focused">
+              <span class="mood-emoji">🧠</span>
+              <span class="mood-name">Focused</span>
+            </div>
+            <div class="mood-card romantic" data-mood="Romantic">
+              <span class="mood-emoji">❤️</span>
+              <span class="mood-name">Romantic</span>
+            </div>
+            <div class="mood-card melancholic" data-mood="Melancholic">
+              <span class="mood-emoji">😔</span>
+              <span class="mood-name">Melancholic</span>
+            </div>
+            <div class="mood-card angry" data-mood="Angry">
+              <span class="mood-emoji">😠</span>
+              <span class="mood-name">Angry</span>
+            </div>
+            <div class="mood-card peaceful" data-mood="Peaceful">
+              <span class="mood-emoji">🕊️</span>
+              <span class="mood-name">Peaceful</span>
+            </div>
+          </div>
+
+          <div class="action-center">
+            <button class="btn btn-primary" id="generate-btn-cards" disabled>
+              Generate My Playlist
+            </button>
+          </div>
+        </div>
+
+        <!-- describe-mood -->
+        <div class="tab-content" id="describe-mood">
+          <div class="mood-description-container">
+            <h3>Describe how you're feeling</h3>
+            <textarea
+              class="mood-textarea"
+              id="mood-textarea"
+              placeholder="I'm feeling nostalgic and a bit dreamy today, thinking about my childhood summers..."></textarea>
+            <div class="mood-suggestions">
+              <h4>Suggested mood words:</h4>
+              <div class="suggestion-tags">
+                <span class="suggestion-tag">nostalgic</span>
+                <span class="suggestion-tag">dreamy</span>
+                <span class="suggestion-tag">excited</span>
+                <span class="suggestion-tag">contemplative</span>
+                <span class="suggestion-tag">motivated</span>
+                <span class="suggestion-tag">anxious</span>
+                <span class="suggestion-tag">peaceful</span>
+                <span class="suggestion-tag">inspired</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-center">
+            <button class="btn btn-primary" id="generate-btn-text" disabled>
+              Generate My Playlist
+            </button>
+            <button class="btn" id="surprise-btn">
+              <i class="fa-solid fa-magic"></i> <span>Surprise Me</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Today's Mood Playlists Section -->
+
+      <div class="featured-section">
+        <h2><i class="fas fa-headphones"></i> Today's Featured Moods</h2>
+        <div class="featured-playlists">
+          <!-- Energetic Playlist -->
+          <div class="playlist-card">
+            <div class="playlist-image">
+              <img src="Css/Images/Energetic.jpg" alt="Energetic Playlist" />
+            </div>
+            <div class="playlist-info">
+              <h3 class="playlist-title">Energetic Boost</h3>
+              <p class="playlist-description">
+                High-tempo tracks to get you moving and energized
+              </p>
+              <a href="#" class="playlist-listen">Listen Now</a>
+            </div>
+          </div>
+
+          <!-- Relaxed Playlist -->
+          <div class="playlist-card">
+            <div class="playlist-image">
+              <img src="Css/Images/relaxed.jpg" alt="Relaxed Playlist" />
+            </div>
+            <div class="playlist-info">
+              <h3 class="playlist-title">Calm Retreat</h3>
+              <p class="playlist-description">
+                Soothing melodies for relaxation and unwinding
+              </p>
+              <a href="#" class="playlist-listen">Listen Now</a>
+            </div>
+          </div>
+
+          <!-- Focused Playlist -->
+          <div class="playlist-card">
+            <div class="playlist-image">
+              <img src="Css/Images/focused.jpg" alt="Focused Playlist" />
+            </div>
+            <div class="playlist-info">
+              <h3 class="playlist-title">Deep Focus</h3>
+              <p class="playlist-description">
+                Concentration-enhancing tracks for productivity
+              </p>
+              <a href="#" class="playlist-listen">Listen Now</a>
+            </div>
+          </div>
+
+          <!-- Melancholic Playlist -->
+          <div class="playlist-card">
+            <div class="playlist-image">
+              <img
+                src="Css/Images/melancholic.jpg"
+                alt="Melancholic Playlist" />
+            </div>
+            <div class="playlist-info">
+              <h3 class="playlist-title">Reflective Moods</h3>
+              <p class="playlist-description">
+                Thoughtful songs for introspective moments
+              </p>
+              <a href="#" class="playlist-listen">Listen Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Sidebar Menu Panel -->
+    <div class="side-panel">
+      <button class="close-button">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h2 class="panel-title">MOODIFY</h2>
+
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <i class="fa-solid fa-house-user nav-icon"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="mood-selection.html" class="nav-link">
+            <i class="fa-solid fa-face-smile nav-icon"></i> Mood Selection
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="playlistpage.html" class="nav-link">
+            <i class="fa-solid fa-music nav-icon"></i> Playlist
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-footer">
+        <p>Made with ❤️ at Nii Studios</p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="company-info">
+          <h4>Moodify</h4>
+          <p>Your sound companion, bringing music to fit every mood.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#mood-selection">Mood Selection</a></li>
+            <li><a href="#playlist">Playlist</a></li>
+            <li><a href="#mood-history">Mood History</a></li>
+          </ul>
+        </div>
+        <div class="social-media">
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="https://instagram.com">Instagram</a></li>
+            <li><a href="https://twitter.com">Twitter</a></li>
+            <li><a href="https://youtube.com">YouTube</a></li>
+            <li><a href="https://tiktok.com">TikTok</a></li>
+            <li><a href="https://spotify.com">Spotify</a></li>
+            <!-- Added Spotify -->
+            <li><a href="https://apple.com/music">Apple Music</a></li>
+            <!-- Added Apple Music -->
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Moodify | All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <script src="fontawesome-pro/js/pro.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
