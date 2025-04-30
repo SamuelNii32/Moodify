@@ -4,6 +4,13 @@ Moodify is a mood-based music playlist generator built with HTML, CSS, and JavaS
 
 
 ### 🎭 Mood Selection Page
+![Mood Selection](screenshots/moodselection.png)
+
+### ✍️ Describe Your Mood
+![Describe Mood](screenshots/describe.png)
+
+### 🎧 Playlist Player
+![Playlist Page](screenshots/playlist.png)
 
 
 ## 🚀 Features
