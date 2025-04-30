@@ -2,6 +2,10 @@
 
 Moodify is a mood-based music playlist generator built with HTML, CSS, and JavaScript — no backend or APIs required! Users can select a mood, describe their feelings, or even get a surprise playlist.
 
+
+### 🎭 Mood Selection Page
+
+
 ## 🚀 Features
 
 - 🎭 **Mood Selection** — Choose from predefined moods (happy, sad, relaxed, etc.).
